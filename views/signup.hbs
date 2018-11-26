@@ -1,4 +1,36 @@
 {{> navbar}}
+
+<div>
+  
+  <ul class="tab-group">
+    <li class="tab active"><a id="drinker-btn" href="#drinker">Drinker</a></li>
+    <li class="tab"><a id="driver-btn" href="#driver">Driver</a></li>
+  </ul>
+  
+  <div id="drinker" class="">
+    <h1>Drinker</h1>
+    <form action="/createDrinker" method ="post">
+      <input type="text" name="firstName" placeholder="First Name"><br>
+      <input type="text" name="lastName" placeholder="Last name"><br>
+      <input type="text" name="email" placeholder="E-mail address"><br>
+      <input type="password" name="password" placeholder="password"><br>
+      <button type="submit">Create an account</button>
+    </form>
+  </div>
+  
+  <div id="driver" class="hide">
+      <h1>Driver</h1>
+      <form action="/createDriver" method ="post">
+        <input type="text" name="firstName" placeholder="First Name"><br>
+        <input type="text" name="lastName" placeholder="Last Name"><br>
+        <input type="text" name="email" placeholder="E-mail address"><br>
+        <input type="password" name="password" placeholder="password" ><br>
+        <button type="submit">Create an account</button>
+      </form>
+  </div>
+  
+</div>
+
 <h1>Drinkers</h1>
 
 <form action="/createDrinker" method ="post">
@@ -17,3 +49,4 @@
   <input type="password" name="password" placeholder="password" ><br>
   <button type="submit" id="submitCreate">Create an account</button>
 </form>
+
