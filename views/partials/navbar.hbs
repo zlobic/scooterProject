@@ -1,0 +1,33 @@
+{{!-- <nav id="menu">
+    <ul>
+     <a href="/login">Log In</a>
+     <a href="/signup">Sign Up</a>
+     <a href="/drinkers">For Drinkers</a>
+     <a href="/drivers">For Drivers</a>
+     <a href="/aboutUs">About Us</a>
+     <a href="/contactUs">Contact Us</a>
+    </ul>
+</nav> --}}
+
+<ul id="slide-out" class="sidenav">
+{{#if loggedIn}}
+<li>
+    <div class="user-view">
+    <div class="background">
+        <img src="images/office.jpg">
+    </div>
+    <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+    <a href="#name"><span class="white-text name">John Doe</span></a>
+    <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    </div>
+</li>
+{{else}}
+    <li><a class="waves-effect" href="/drinkers"><i class="material-icons">local_bar</i>For drinkers</a></li>
+    <li><a class="waves-effect" href="/drivers"><i class="material-icons">directions_car</i>For drivers</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Scootbob</a></li>
+    <li><a href="/aboutUs">About Us</a></li>
+    <li><a href="/contactUs">Contact Us</a></li>
+    </ul>
+<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+{{/if}} 
