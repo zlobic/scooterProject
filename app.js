@@ -40,11 +40,12 @@ app.use("/createDriver", require('./routes/createDriver'));
 app.use("/login", require('./routes/login'));
 app.use("/drinkerLog", require('./routes/drinkerLog'));
 app.use("/driverLog", require('./routes/driverLog'));
-app.use("/indexDriver", require('./routes/indexDriver'))
-app.use("/indexDrinker", require('./routes/indexDrinker'))
-app.use("/aboutUs", require('./routes/aboutUs'))
-app.use("/contactUs", require('./routes/contactUs'))
-app.use("/logout", require('./routes/logout'))
+app.use("/indexDriver", require('./routes/indexDriver'));
+app.use("/indexDrinker", require('./routes/indexDrinker'));
+app.use("/aboutUs", require('./routes/aboutUs'));
+app.use("/contactUs", require('./routes/contactUs'));
+app.use("/logout", require('./routes/logout'));
+app.use("/introduction", require('./routes/introduction'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
