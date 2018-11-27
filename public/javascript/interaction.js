@@ -8,7 +8,6 @@ $("#driver-btn").click(function(){
     $("#driver").attr('class', '');
 });
 
-
 $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.carousel.carousel-slider').carousel({
