@@ -9,3 +9,14 @@ a {
 .hide {
   display: none;
 }
+
+.flex-container {
+  display: flex;
+  justify-content: center; 
+}
+
+.origin-destination {
+  position: absolute;
+  width: 80%;
+  margin-top: 40px;
+}
