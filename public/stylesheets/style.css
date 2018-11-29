@@ -20,3 +20,21 @@ a {
   width: 80%;
   margin-top: 40px;
 }
+
+.ride-confirm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  position: absolute;
+  width: 80%;
+  margin-top: 80vh;
+}
+
+.price-box {
+  display: flex;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 25%;
+}
