@@ -22,6 +22,8 @@ $(document).ready(function(){
   }
   var directionsService;
   var directionsDisplay;
+  var autocomplete;
+
   //Generating the map.
   function initialize(position) {
       directionsService = new google.maps.DirectionsService;
@@ -38,18 +40,24 @@ $(document).ready(function(){
         streetViewControl: false,
         zoomControl: false
     }
-      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-      var userMarker = new google.maps.Marker({
-          position: myLatLng,
-          map: map, 
-          icon: im
-      });
+
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    var userMarker = new google.maps.Marker({
+        position: myLatLng,
+        map: map, 
+        icon: im
+    });
+
     var geocoder = new google.maps.Geocoder;
     geocodeLatLng(geocoder, map, currentLat, currentLong); 
+
+    
   }
   function fail(){
       alert('navigator.geolocation failed, may not be supported');
   }
+
+
   // reverse geocoding from latlng to adress.
   function geocodeLatLng(geocoder, map, currentLat, currentLong) {
   var latlng = {lat: currentLat, lng: currentLong};
@@ -67,15 +75,16 @@ $(document).ready(function(){
       console.log('Geocoder failed due to: ' + status);
     }
   });
+  
   directionsDisplay.setMap(map);
-
   var onChangeHandler = function() {
-    console.log("Input is changed");
     calculateAndDisplayRoute(directionsService, directionsDisplay);
+    calculateDistance();
   };
   $('#origin-input').on( "change", onChangeHandler )
   $('#destination-input').on( "change", onChangeHandler )
 }
+
 //funciton to calculate and display the route based on the origin and destination the user entered. 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   directionsService.route({
@@ -92,5 +101,39 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   });
 }
 
+  // calculate distance
+  function calculateDistance() {
+    var origin = $('#origin-input').val();
+    var destination = $('#destination-input').val();
+    var service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix(
+        {
+            origins: [origin],
+            destinations: [destination],
+            travelMode: google.maps.TravelMode.DRIVING,
+            unitSystem: google.maps.UnitSystem.IMPERIAL, // miles and feet.
+            // unitSystem: google.maps.UnitSystem.metric, // kilometers and meters.
+            avoidHighways: false,
+            avoidTolls: false
+        }, callback);
+}
 
-
+// get distance results
+function callback(response, status) {
+  if (status != google.maps.DistanceMatrixStatus.OK) {
+      $('#result').html(err);
+  } else {
+      var origin = response.originAddresses[0];
+      var destination = response.destinationAddresses[0];
+      if (response.rows[0].elements[0].status === "ZERO_RESULTS") {
+          $('#result').html("Better get on a plane. There are no roads between "  + origin + " and " + destination);
+      } else {
+          var distance = response.rows[0].elements[0].distance;
+          var duration = response.rows[0].elements[0].duration;
+          var distance_in_kilo = distance.value / 1000; // the kilom
+          var duration_value = duration.value;
+          $('#in_kilo').text(distance_in_kilo.toFixed(2));
+          $('#duration_value').text(duration_value / 100);
+     }
+  }
+}

@@ -30,11 +30,11 @@ a {
   margin-top: 80vh;
 }
 
-.price-box {
+.info-box {
   display: flex;
   font-size: 18px;
   justify-content: center;
   align-items: center;
   height: 30px;
-  width: 25%;
+  width: 30%;
 }
