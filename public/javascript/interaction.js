@@ -134,6 +134,13 @@ function callback(response, status) {
           var duration_value = duration.value;
           $('#in_kilo').text(distance_in_kilo.toFixed(2));
           $('#duration_value').text(duration_value / 100);
+          //update price based on distance 
+          getPrice(distance_in_kilo);
      }
   }
+}
+
+// calculate and update price
+function getPrice(distance) {
+  $('#ride-price').text(Number(distance * 2).toFixed(2))
 }
