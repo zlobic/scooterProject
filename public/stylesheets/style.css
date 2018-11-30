@@ -89,7 +89,6 @@ ul{
   position: absolute;
   top: 60px;
   left: 70px;
-  z-index: 1;
   display: inline-block;
   font-size: 39px !important;
   color: white !important;
@@ -147,6 +146,85 @@ ul{
   font-family: 'Montserrat';
 }
 
+#slide-out > li > a{
+  background-color: #bcdaf5;
+}
+
+.signupContainer{
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  top: 200px;
+}
+
+.signupContainer > button{
+ margin: 0 auto;
+ display: block;
+ width: 100px;
+}
+.headerContainer{
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  color: white;
+  top: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.headerContainer > h1{
+  font-size: calc(2.9rem + (40 * ((100vw - 467px) / 1600)));
+  padding-bottom: 5px;
+  border-bottom: 3px solid white;
+  display: inline;
+}
+
+.formContainer{
+display: flex;
+justify-content: center;
+flex-flow: column nowrap;
+}
+
+.formContainer > form{
+  margin-top: 25px;
+  
+}
+
+.formContainer > form > input{
+  color: white;
+  border-bottom-color: white !important;
+}
+
+.formContainer > h3{
+  color: white;
+}
+
+#submitCreate{
+  width: 200px;
+  border-radius: 8px;
+  background-color: white;
+  color: rgba(0,0,0, 0.5);
+  margin: 25px auto 0 auto;
+  padding: 10px;
+  cursor: pointer;
+  display: block;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  border: none;
+}
+
+#submitCreate:hover{
+  background-color: black;
+  color: white;
+}
+
+.formContainer > form > input::placeholder{
+  color: white;
+}
+
 
 @media only screen and (min-width: 320px) and (max-width: 479px){
   
@@ -184,8 +262,22 @@ ul{
   }
   }
 
-@media only screen and (min-width: 768px) and (max-width: 991px){
-  
+@media only screen and (max-width: 1225px){
+  .signupContainer{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 200px;
+  }
+
+.formContainer{
+margin-bottom: 20px;
+}
+
+body{
+  height: 1200px;
+}
+
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1999px){ }
