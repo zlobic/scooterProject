@@ -6,6 +6,7 @@ var Driver = mongoose.model('drivers', new Schema({
     lastName: String,
     email: String,
     password: String,
+    isVerified: { type: Boolean, default: false }
 }),'drivers')
 
 

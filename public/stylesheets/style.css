@@ -1,11 +1,191 @@
 body {
-  height: 500px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+font-family: 'Montserrat', sans-serif;
+height: 1000px;
+background-color: #bcdaf5;
 }
 
 a {
   color: #00B7FF;
 }
+
 .hide {
   display: none;
 }
+
+.introButton{
+position: relative;
+cursor: pointer;
+transition: all 0.5s ease-in-out;
+position: absolute;
+bottom: 110px;
+
+}
+
+.carousel{
+  height: 100% !important;
+}
+
+.containerFlex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    text-align: center;
+    min-width: 80vw;
+    height: 100%;
+}
+
+.one{
+  position: relative; bottom: 120px;
+}
+.containerFlex > h1{
+  font-size: calc(2.9rem + (40 * ((100vw - 467px) / 1600)));
+  text-shadow: -4px 3px 0 #e6e6e6; 
+  max-width: 70vw;
+}
+
+.containerFlex > h5 {
+  font-size: calc(1.5rem + (10 * ((100vw - 467px) / 1600)));
+  font-weight: 900;
+  margin-bottom: 10px;
+  max-width: 70vw;
+  line-height: 30px;
+}
+
+.containerFlex > h5, h1{
+  display: block;
+  margin: 0 auto;
+
+}
+
+.containerFlexButtons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; 
+  top: 260px;
+}
+
+.containerFlexButtons > .btn-large{
+  margin: 10px;
+  position: relative;
+  right: 1.3%;
+}
+
+ul{
+  position: absolute !important;
+  bottom: 100px !important;
+}
+
+.material-icons{
+ position: relative;
+ z-index: 1;
+ left: 5%;
+ width: 30px;
+ height: 30px;
+}
+
+.hamburger{
+  position: absolute;
+  top: 60px;
+  left: 70px;
+  z-index: 1;
+  display: inline-block;
+  font-size: 39px !important;
+  color: white !important;
+}
+
+.fas{
+  font-size: 45px;
+}
+
+.conceptContainer{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  position: relative;
+  top: 120px;
+  margin: 0 !important;
+  width: 710px;
+  max-width: 80vw;
+}
+
+.conceptContainer > p {
+  font-weight: 700;
+  font-size: calc(1rem + (7 * ((100vw - 467px) / 1600))) !important;
+  width: 190px;
+  height: 100%;
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+.containerAbout{
+ width: 60%;
+  height: 600px;
+  margin: 0 auto;
+}
+.about{
+  position: absolute;
+  left: 43%;
+  top: 20%;
+  color: white;
+}
+
+.photos{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.photos > .circle{
+  width: 350px;
+  height: 450px;
+  border-radius: 200px 200px 200px 200px;
+}
+
+#slide-out{
+  background-color: #bcdaf5;
+  font-family: 'Montserrat';
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 479px){
+  
+  
+  }
+
+@media only screen and (min-width: 320px) and (max-width: 767px){
+  body{
+    height: 1200px;
+
+  }
+  .conceptContainer{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  top: 80px;
+  margin: 0 !important;
+  width: 710px;
+  max-width: 80vw;
+  }
+
+  .one{
+    position: relative;
+    bottom: 0px;
+    top: 10px;
+  }
+
+  .conceptContainer > p {
+    margin-bottom: 50px;
+  }
+
+  .carousel .indicators{
+  bottom: 35px !important;
+  }
+  }
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+  
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1999px){ }
