@@ -9,3 +9,32 @@ a {
 .hide {
   display: none;
 }
+
+.flex-container {
+  display: flex;
+  justify-content: center; 
+}
+
+.origin-destination {
+  position: absolute;
+  width: 80%;
+  margin-top: 40px;
+}
+
+.ride-confirm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  position: absolute;
+  width: 80%;
+  margin-top: 80vh;
+}
+
+.info-box {
+  display: flex;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30%;
+}

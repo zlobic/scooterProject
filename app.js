@@ -46,8 +46,9 @@ app.use("/aboutUs", require('./routes/aboutUs'));
 app.use("/contactUs", require('./routes/contactUs'));
 app.use("/logout", require('./routes/logout'));
 app.use("/introduction", require('./routes/introduction'));
-app.use("/confirmation", require('./routes/confirmation'))
-app.use("/resend", require('./routes/resend'))
+app.use("/confirmation", require('./routes/confirmation'));
+app.use("/resend", require('./routes/resend'));
+app.use("/map-ride", require('./routes/map-ride'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
