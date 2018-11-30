@@ -1,41 +1,12 @@
 {{> navbar}}
-
-<div>
-  
-  <ul class="tab-group">
-    <li class="tab active"><a id="drinker-btn" href="#drinker">Drinker</a></li>
-    <li class="tab"><a id="driver-btn" href="#driver">Driver</a></li>
-  </ul>
-  
-  <div id="drinker" class="">
-    <h1>Drinker</h1>
-    <form action="/createDrinker" method ="post">
-      <input type="text" name="firstName" placeholder="First Name"><br>
-      <input type="text" name="lastName" placeholder="Last name"><br>
-      <input type="text" name="email" placeholder="E-mail address" required><br>
-      <input type="password" name="password" placeholder="Password" required><br>
-      <input type="password" name="confirmPassword" placeholder="Confirm Password" required><br>
-      <button type="submit">Create an account</button>
-    </form>
+ <div class="headerContainer">
+      <h1>Sign up</h1>
   </div>
-  
-  <div id="driver" class="hide">
-      <h1>Driver</h1>
-      <form action="/createDriver" method ="post">
-        <input type="text" name="firstName" placeholder="First Name"><br>
-        <input type="text" name="lastName" placeholder="Last Name"><br>
-        <input type="text" name="email" placeholder="E-mail address" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-        <input type="password" name="confirmPassword" placeholder="Confirm Password" required><br>
-        <button type="submit">Create an account</button>
-      </form>
-  </div>
-  
-</div>
 
-<h1>Drinkers</h1>
-
-<form action="/createDrinker" method ="post">
+<div class="signupContainer">
+  <div class="formContainer">
+  <h3>For Drinkers</h3>
+  <form action="/create/createDrinker" method ="post">
   <input type="text" name="firstName" placeholder="First Name"><br>
   <input type="text" name="lastName" placeholder="Last name"><br>
   <input type="text" name="email" placeholder="E-mail address" required><br>
@@ -43,13 +14,18 @@
         <input type="password" name="confirmPassword" placeholder="Confirm Password" required><br>
   <button type="submit" id="submitCreate">Create an account</button>
 </form>
+</div>
+<div class="formContainer">
+  <h3>For Drivers</h3>
+    <form action="/create/createDriver" method ="post">
+    <input type="text" name="firstName" placeholder="First Name"><br>
+    <input type="text" name="lastName" placeholder="Last Name"><br>
+    <input type="text" name="email" placeholder="E-mail address" required><br>
+    <input type="password" name="password" placeholder="password" required><br>
+    <input type="password" name="confirmPassword" placeholder="Confirm password" required><br>
+    <button type="submit" id="submitCreate">Create an account</button>
+  </form>
+</div>
+</div>
 
-<h1>Drivers</h1>
-<form action="/createDriver" method ="post">
-  <input type="text" name="firstName" placeholder="First Name"><br>
-  <input type="text" name="lastName" placeholder="Last Name"><br>
-  <input type="password" name="password" placeholder="password" required><br>
-        <input type="password" name="confirmPassword" placeholder="Confirm password" required><br>
-  <button type="submit" id="submitCreate">Create an account</button>
-</form>
 
