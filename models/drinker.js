@@ -6,6 +6,7 @@ var Drinker = mongoose.model('drinkers', new Schema({
     lastName: String,
     email: String,
     password: String,
+    isVerified: { type: Boolean, default: false }
 }),'drinkers')
 
 

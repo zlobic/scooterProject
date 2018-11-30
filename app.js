@@ -31,15 +31,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use("/create", require('./routes/create'));
+app.use("/login", require('./routes/login'));
 app.use("/drivers", require('./routes/drivers'));
 app.use("/drinkers", require('./routes/drinkers'));
 app.use("/index", require('./routes/index'));
-app.use("/signup", require('./routes/signup'))
-app.use("/createDrinker", require('./routes/createDrinker'));
-app.use("/createDriver", require('./routes/createDriver'));
-app.use("/login", require('./routes/login'));
-app.use("/drinkerLog", require('./routes/drinkerLog'));
-app.use("/driverLog", require('./routes/driverLog'));
 app.use("/indexDriver", require('./routes/indexDriver'));
 app.use("/indexDrinker", require('./routes/indexDrinker'));
 app.use("/aboutUs", require('./routes/aboutUs'));
@@ -47,7 +43,6 @@ app.use("/contactUs", require('./routes/contactUs'));
 app.use("/logout", require('./routes/logout'));
 app.use("/introduction", require('./routes/introduction'));
 app.use("/confirmation", require('./routes/confirmation'));
-app.use("/resend", require('./routes/resend'));
 app.use("/map-ride", require('./routes/map-ride'));
 
 // catch 404 and forward to error handler
@@ -67,7 +62,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(3000, (err=>{
+app.listen(3000,"127.0.0.1", (err=>{
   err ? console.log("Could not connect to the server: " + err) : console.log("Succesfully connected to the server")
 }))
 
