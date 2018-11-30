@@ -16,7 +16,7 @@ $(document).ready(function(){
     });
   });
 
-  var im = '/images/631348-200.png';
+  var im = '/images/dance.gif';
   function initMap(){
       navigator.geolocation.getCurrentPosition(initialize,fail);
   }
@@ -38,7 +38,167 @@ $(document).ready(function(){
         mapTypeControl: false,
         fullscreenControl: false,
         streetViewControl: false,
-        zoomControl: false
+        zoomControl: false,
+        styles:  [
+          {
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#f5f5f5"
+              }
+            ]
+          },
+          {
+            "elementType": "labels.icon",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#616161"
+              }
+            ]
+          },
+          {
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#f5f5f5"
+              }
+            ]
+          },
+          {
+            "featureType": "administrative.land_parcel",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#bdbdbd"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#eeeeee"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#757575"
+              }
+            ]
+          },
+          {
+            "featureType": "poi.park",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#e5e5e5"
+              }
+            ]
+          },
+          {
+            "featureType": "poi.park",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#9e9e9e"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#ffffff"
+              }
+            ]
+          },
+          {
+            "featureType": "road.arterial",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#757575"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#dadada"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#616161"
+              }
+            ]
+          },
+          {
+            "featureType": "road.local",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#9e9e9e"
+              }
+            ]
+          },
+          {
+            "featureType": "transit.line",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#e5e5e5"
+              }
+            ]
+          },
+          {
+            "featureType": "transit.station",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#eeeeee"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#c9c9c9"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#9e9e9e"
+              }
+            ]
+          }
+        ]
     }
 
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -66,7 +226,6 @@ $(document).ready(function(){
       if (results[0]) {
         //updating the starting input field with the users current location.
         $('#origin-input').val(results[0].formatted_address);
-        console.log(results[0].formatted_address);
       } else {
         // var originInput = 'No results found';
         console.log("no result")
@@ -144,3 +303,22 @@ function callback(response, status) {
 function getPrice(distance) {
   $('#ride-price').text(Number(distance * 2).toFixed(2))
 }
+
+$('#confirm-btn').click(()=> {
+  axios.post("/map-ride", {data: {
+    originGeoCode: "x",
+    destinationGeoCode: "x",
+    originAdress: $('#origin-input').val(),
+    destinationAdress: $('#destination-input').val(),
+    travelDistance: $('#in_kilo').text(),
+    travelDuration: $('#duration_value').text(),
+    priceOfRide: $('#ride-price').text()
+    }})
+  .then((result)=> {
+    console.log("post req succesfully done.")
+  })
+  .catch((err)=>{ 
+    if (err) console.log("Error" + err);
+  })
+})
+// onclick extract all values
